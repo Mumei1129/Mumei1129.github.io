@@ -28,6 +28,7 @@ const GHOSTS = [
   { nameJa: 'オバンボ',         name: 'Obambo',        evidence: ['GW', 'UV', 'DOTS']  },
   { nameJa: 'アスワング',       name: 'Aswang',        evidence: ['FT', 'GW', 'DOTS']  },
   { nameJa: 'コルモス',         name: 'Kormos',        evidence: ['GO', 'SB', 'UV']    },
+  { nameJa: 'ディルデガスト',   name: 'Deildegast',    evidence: ['EMF', 'GW', 'DOTS'] },
 ];
 
 const ghostId = g => g.name.toLowerCase().replace(/ /g, '-');
