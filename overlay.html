@@ -61,9 +61,11 @@
   function loadState() {
     const saved = JSON.parse(localStorage.getItem('phasmo_state') || 'null');
     if (saved) {
-      identified = saved.identified;
-      Object.keys(identified).forEach(k => {
-        if (typeof identified[k] === 'boolean') identified[k] = identified[k] ? 1 : 0;
+      GHOSTS.forEach(g => {
+        const k = ghostId(g);
+        let v = saved.identified[k];
+        if (typeof v === 'boolean') v = v ? 1 : 0;
+        identified[k] = v || 0;
       });
       startTime = saved.startTime;
     }
