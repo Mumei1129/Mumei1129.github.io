@@ -59,6 +59,10 @@
       <input type="range" id="settingOpacity" min="0" max="100" step="1" oninput="onSettingChange()">
       <span class="setting-val" id="valOpacity">82%</span>
     </div>
+    <div class="settings-row">
+      <span class="setting-label" id="labelTimer">タイマー表示</span>
+      <input type="checkbox" id="settingTimer" onchange="onSettingChange()">
+    </div>
   </div>
 </div>
 
@@ -94,6 +98,7 @@
 
     document.getElementById('settingsToggleLabel').textContent = s.settingsToggle;
     document.getElementById('labelOpacity').textContent = s.settingOpacity;
+    document.getElementById('labelTimer').textContent = s.settingTimer;
 
     renderGrid();
   }
@@ -207,7 +212,7 @@
     document.getElementById('timer').textContent = `${h}:${m}:${s}`;
   }
 
-  const DEFAULT_SETTINGS = { panelOpacity: 82 };
+  const DEFAULT_SETTINGS = { panelOpacity: 82, showTimer: true };
   let overlaySettings = { ...DEFAULT_SETTINGS };
 
   function loadSettings() {
@@ -215,10 +220,12 @@
     if (saved) overlaySettings = { ...DEFAULT_SETTINGS, ...saved };
     document.getElementById('settingOpacity').value = overlaySettings.panelOpacity;
     document.getElementById('valOpacity').textContent = overlaySettings.panelOpacity + '%';
+    document.getElementById('settingTimer').checked = overlaySettings.showTimer;
   }
 
   function onSettingChange() {
     overlaySettings.panelOpacity = Number(document.getElementById('settingOpacity').value);
+    overlaySettings.showTimer = document.getElementById('settingTimer').checked;
     document.getElementById('valOpacity').textContent = overlaySettings.panelOpacity + '%';
     localStorage.setItem('phasmo_overlay_settings', JSON.stringify(overlaySettings));
     channel.postMessage({ type: 'settings', settings: overlaySettings });

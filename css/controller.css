@@ -354,6 +354,13 @@ footer {
   cursor: pointer;
 }
 
+.settings-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
 .setting-val {
   font-size: 0.72rem;
   color: var(--text);

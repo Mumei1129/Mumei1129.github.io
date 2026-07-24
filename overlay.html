@@ -36,7 +36,7 @@
   GHOSTS.forEach(g => identified[ghostId(g)] = 0);
   let startTime = Date.now();
 
-  const DEFAULT_SETTINGS = { panelOpacity: 82 };
+  const DEFAULT_SETTINGS = { panelOpacity: 82, showTimer: true };
   let overlaySettings = { ...DEFAULT_SETTINGS };
 
   function loadSettings() {
@@ -50,6 +50,7 @@
       '--panel-bg',
       `rgba(8, 10, 20, ${overlaySettings.panelOpacity / 100})`
     );
+    document.getElementById('timer').style.display = overlaySettings.showTimer ? '' : 'none';
   }
 
   function applyLang() {

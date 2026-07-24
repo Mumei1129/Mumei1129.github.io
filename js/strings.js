@@ -13,6 +13,7 @@ const STRINGS = {
 
     settingsToggle:  'オーバーレイ設定',
     settingOpacity:  '背景の透過度',
+    settingTimer:    'タイマー表示',
   },
   en: {
     pageTitle:       'Phasmophobia Ghost Counter',
@@ -28,5 +29,6 @@ const STRINGS = {
 
     settingsToggle:  'Overlay Settings',
     settingOpacity:  'Background Opacity',
+    settingTimer:    'Show Timer',
   },
 };
